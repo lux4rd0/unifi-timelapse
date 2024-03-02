@@ -1,0 +1,19 @@
+services:
+  unifi-timelapse:
+    container_name: unifi-timelapse
+    environment:
+      TZ: America/Chicago
+      UNIFI_TIMELAPSE_CAMERAS: cam-basement,cam-basement-tenlog,cam-frontdoor,cam-garage,cam-lavalamp,cam-pergolanorth,cam-pergolasouth
+      UNIFI_TIMELAPSE_DOMAIN: tylephony.com
+      UNIFI_TIMELAPSE_FETCH_INTERVAL: '60'
+      UNIFI_TIMELAPSE_FETCH_MAX_RETRIES: '3'
+      UNIFI_TIMELAPSE_FETCH_RETRY_DELAY: '5'
+      UNIFI_TIMELAPSE_HTTP_TIMEOUT: '10'
+      UNIFI_TIMELAPSE_IMAGE_OUTPUT_PATH: output/images
+      UNIFI_TIMELAPSE_LOGGING_LEVEL: INFO
+      UNIFI_TIMELAPSE_VIDEO_OUTPUT_PATH: output/video
+    image: lux4rd0/unifi-timelapse:1.0.0
+    restart: always
+    volumes:
+    - /mnt/docker/unifi-timelapse/output:/app/output:rw
+version: '3.8'

@@ -1,0 +1,6 @@
+build.sh
+docker-compose.yaml
+Dockerfile
+geather_reqs.sh
+output
+__pycache__
